@@ -1,0 +1,28 @@
+{
+  "name": "bloom",
+  "license": "MIT",
+	"description": "A rudimentary bloom filter cli tool for easy creation of a bloom filter from a list of values",
+	"keywords": ["cli", "data", "powerful"],
+	"author": "Bob",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "cli": "./src/cli.js"
+  },
+  "bin": {
+    "cli": "./src/cli.js"
+  },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/neuthral/bloom-filter.git"
+	},
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "murmurhash-js": "^1.0.0",
+    "n-readlines": "^1.0.1",
+    "yargs": "^17.7.2"
+  }
+}
