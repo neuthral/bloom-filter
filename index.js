@@ -1,5 +1,3 @@
-const murmur = require("murmurhash-js")
-
 /**
  * @class Bloom
  * @method save
@@ -35,7 +33,7 @@ class Bloom {
         let digests = []
         for(let i = 0; i < this.HASHES; i++) {
             try {
-                let hash = murmur.murmur2(item, i)
+                let hash = Bun.hash.murmur32v3(item, i) //murmur.murmur3(item, i)
                 let idx =  hash % this.ARRAY_LENGTH
                 this.BLOOM_FILTER[idx] = 1
                 digests.push(idx)
@@ -56,7 +54,7 @@ class Bloom {
     check(item) {
         let taken = 0
         for (let i = 0; i < this.HASHES; i++) {
-            let hash = murmur.murmur2(item, i)
+            let hash = Bun.hash.murmur32v3(item, i)
             let idx =  hash % this.ARRAY_LENGTH
             if(this.BLOOM_FILTER[idx]) {
                 taken++
